@@ -1,10 +1,16 @@
 ﻿# Vector Terminal
 This program is a simple terminal written in C. All its operations are designed to work around vectors of integers.
+
 ## Why?
-I wanted to deeply understand how a terminal worked, so I decided to build one entirely from scratch. Why vectors? I needed some "objects" to make my terminal work with, like the real OS terminals that work with strings and files.
+I wanted to deeply understand how a terminal worked, so I decided to build one entirely from scratch.
+
+## Why vectors?
+I needed some "objects" to make my terminal work with, like the real OS terminals that work with strings and files.
+
 ## My System Specs
-Windows:
-`Microsoft Windows [Versione 10.0.18363.1198]`
+Last update: 26/05/2021
+
+Windows: `Microsoft Windows [Versione 10.0.19042.985]`
 
 Output of `gcc --version`:
 `gcc (MinGW.org GCC-6.3.0-1) 6.3.0
