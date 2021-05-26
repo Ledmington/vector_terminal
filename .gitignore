@@ -1,0 +1,6 @@
+bin/
+*.txt
+!TODO.txt
+src/*.txt
+src/test/*.txt
+src/test/*.exe

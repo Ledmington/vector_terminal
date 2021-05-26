@@ -1,0 +1,222 @@
+########################################################
+#                   CHANGES FOR 0.1                    #
+#   to be released after all tests have been written   #
+########################################################
+
+Sort list of arrays and CSVs and aliases in alphabetical order (and maybe commands)
+
+Add parameter to sort command:
+       "sort --inplace" modifies the actual array with its sorted version
+       without "--inplace", the command "sort" prints the elements of the array in order
+
+new parameter for 'config':
+    after param "-d" | "--default" it will be possible to add another parameter "-a" | "--all"
+    to reset all CSVs to their default values.
+
+
+
+
+
+
+#####################################
+#         CHANGES FOR 1.0           #
+#####################################
+
+New command "errors" to show the last N errors that have been detected, together
+          with the command that generated them.
+          Each error will be added at the end of a queue (maybe with a timestamp)
+          and calling command "errors" will clear the error's queue.
+          (like OpenGL)
+
+ADD LOGGER (isn't it what the command 'history' does?)
+         (maybe in memory or on a file, to allow bugs to be reproduced)
+
+Add a boolean to CSVs to know whether it was modified.
+	use that timestamp to update only the ones modified during 'updateCSVs()'
+
+Add LOG as a boolean CSV:
+    if set to true, the terminal writes some info on a file after each command.
+    setting it to false improves performance
+    maybe add also LOG_TYPE to define "full", "no time", "only errors"
+
+Add LAZY_LOG as a boolean CSV:
+    the terminal writes some info about the current session after each command.
+    if this CSV is set to true, the terminal logs on file only before closing
+    or after having reached a certain amount of memory (the amount of memory can be set with another CSV)
+
+Add OUTPUT_TYPE as a string CSV:
+    can be "all", "error" or "nothing"
+    "all" -> print everything
+    "error" -> print just the errors, if and whenever they occur
+    "nothing" -> print nothing, just tell if something went wrong during execution like this:
+                "an error occurred, execution terminated, try setting OUTPUT_TYPE to 'error' or 'all' to see the errors"
+    with this CSV as example, add a new type of CSV, ENUM, which is a string but can only have certain strings as value
+
+CHANGE 'illegal_characters' in order to make easy to print and view them from console
+
+new parameter for 'print':
+    at the end of a command starting with 'print' it will be possible to add the name or the path of a file
+    in which the output of the command will be printed.
+    if there are no separator characters in the file name, no quotes are required.
+    otherwise, double quotes are used.
+    examples:
+    	example.txt -> does not require quotes
+    	"my little example.txt" -> needs double quotes
+
+new parameter for 'print':
+    "-l" | "--last"     to print the last used array (it could be a global reference, an alias)
+
+new parameter for 'copy':
+    "-f" | "--force"    forces the overwriting of the new array, if it exists
+    example:    "copy arr new"
+                if new already exists, nothing happens
+                "copy arr new -f"
+                if new already exists, it gets overwritten
+
+new command "examples"
+    like 'help' but prints examples of commands and an explanation of their behavior
+    in order to let the user learn their use faster
+    (idea: each one of the examples can be a default alias such that
+        create example1 -> runs the first example of command 'create'
+        to distinguish references to examples a special symbol can be used)
+
+new parameter for 'list':
+	"-s" | "--sorted" outputs the list of arrays sorted
+		"-sa" sorts alphabetically arrays' names
+		"-sl" sorts arrays's lengths
+		"asc"(default) or "desc"
+
+new parameter for 'list':
+	"-ws" | "--with-size" outputs a list of all the existing arrays with the given size.
+		when specified, takes one mandatory parameter: the number representing the size.
+
+new command "sum":
+	takes two mandatory parameters: the names of two existing arrays (can be the same name twice)
+	Given arrays must have the same size.
+	Performs the sum of each element of the two arrays and saves the result in the first one
+	Example:
+		"sum A B"
+		performs A[i] = A[i]+B[i] for each 0<=i<size(A)
+
+	Other optional parameter: "-r" | "--result"
+		when specified, needs the name of the resulting array.
+		creates a new array filling it with the sum of the elements of the two arrays.
+		if the given array already exists it does nothing.
+		Example:
+			"sum A B -r C"
+			performs "create C size"
+					c[i] = A[i]+B[i] for each 0<=i<size(A)
+		Specifying another parameter "-f" | "--force" before the third arrays name will
+		overwrite the elements of the third array, if it exists and it has the same size.
+
+new command "diff":
+	same behavior of "sum", same parameters
+	performs the difference
+
+new command "avg":
+    takes one mandatory parameter:
+     - the name of an existing array
+    calculates the arithmethic average of the elements of the array
+    maybe add some optional parameters in order to choose between arithmethic, armonic and geometric averages.
+    maybe add as optional parameter the name of a second array whose elements can be used as weigths for a weighted average.
+
+new command "stddev":
+    like "avg":
+    calculates the standard deviation of the elements of the given array 
+
+new command "size":
+	takes one mandatory parameter: the name of an existing array.
+	outputs the size of the specified array.
+
+the command 'find' can be changed with just two parameters
+"-m" | "--mode" used like "--mode=all" to define that we want to show
+                                        all the occurencies
+                                        and so on...
+"-c" | "--compare"  ->  "--compare=eq"
+
+new parameter(s) for 'print':
+    parameters for formatting the output
+    "row" will print all elements in a long row, with the indexes above,
+    "column" will print all elements in a column, with the indexes on the left,
+    "table" will print all elements like a row on many lines, but all aligned vertically
+
+new command 'rename':
+    takes two mandatory parameters:
+     - the name of an existing array to rename
+     - the name of a non-existing array which will be the new name
+    simply, changes the name of the array
+
+Add more types of data for arrays:
+	- "single ones" : integer or double
+	- tuples : like 2-dimensional points, or 3D or more
+
+add possibility to create temporary variables (that get deleted before closing)
+	these TMPVAR can be strings or numbers and can be used to fill vectors, to
+	set numbers in vectors, to set certain names and certain aliases
+
+
+
+
+
+
+#####################################
+#         CHANGES FOR 2.0           #
+#####################################
+
+IMPORTANT IDEA:
+    three options:
+     - create many commands like sum, diff, mul, avg, stddev ecc.. to performs various things
+     - create a single big command "math" which takes "-sum", "-diff", "-mul" ecc parameters to perform those various operations
+     - treat this big command as an external package that can be added or removed from the program (this is the idea)
+
+Implementing the mechanism of packages would mean that each package will have:
+     - a version number,
+     - many files in different folders,
+     - maybe some dependencies from other packages (requiring maybe a specific version)
+
+Ideas for packages:
+     - core (the main program)
+     - math
+     - fancy (to create more personalized output)
+     - matrix (to transform the terminal from vectors to n-dimensional matrices)
+     - vectscript (to allow more control on script execution)
+     - parallel
+
+A problem with packages:
+    a command of the core may have no parameters without package P, but may have some parameters with it.
+    so the number of parameters available for a command may vary depending on which package is being used.
+
+brace expansion:
+    (0..9) -> 0 1 2 3 4 5 6 7 8 9
+    can be used to insert different values in an array
+    maybe it's a better idea to use braces like one-line for cycles in python
+    [start_inc:end_exc:increment]
+    example:
+    	[1:10:2] -> 1 3 5 7 9 (from 1 inclusive to 10 exclusive, increment 2)
+    if no start is specified, default is 0
+    if no end is specified, default is "stop when array is filled"
+	if no increment is specified, default is 1
+	So, it's like a feature of the terminal, when sees a structure like "[_:_:_]"
+	creates an 'engine' that outputs a number only when requested
+	so when user types "add arr [1:10:2]"
+	the terminal changes the braces into the string "1 3 5 7 9" and then executes
+	the command, adding these numbers at the end of the array
+	same thing with command "set"
+
+
+comments in scripts?
+    maybe starting with '#'
+    make that character(s) a CSV
+
+new feature:
+    allow to save and load to/from file all arrays or only some specific ones.
+    the save/load mechanism can be triggered via a boolean CSV (if false, save nothing. if true, save what the user decides)
+    in order to decide which arrays are to be saved, a boolean can be added in each ARRAY structure while in ram.
+    maybe something like "create arr 10 --saved" to set this at creation
+    or something like "save arr" to explicitly tell the temrinal to write the content of the array on file
+    for the loading phase, a new command or a new parameter for command 'create' can be necessary
+    like "create arr 10 --load-from my_file.txt"
+
+new feature:
+	allow to convert a certain script from "vector terminal language" to C or Matlab code (it's actually pretty easy)
+	create a command "convert" or a package "convert" or "code-conv"
