@@ -20,6 +20,7 @@ bool sort(INPUT_STRING* input_str){
         #endif
         return false;
     }
+
     current_param++;
 
     /*
@@ -29,8 +30,6 @@ bool sort(INPUT_STRING* input_str){
     	merge_sort(vector->ptr, 0, vector->size-1);
     	return true;
     }
-
-    current_param++;
 
     PARAMETER* param_tmp = search_parameter(cmd, input_str->params[current_param]);
 
@@ -51,13 +50,4 @@ bool sort(INPUT_STRING* input_str){
 
     error = no_error;
     return true;
-}
-
-void sort_ascending(ARRAY* arr){
-    merge_sort(arr->ptr, 0, arr->size-1);
-}
-
-void sort_descending(ARRAY* arr){
-    merge_sort(arr->ptr, 0, arr->size-1);
-    reverse(arr->ptr, 0, arr->size-1);
 }

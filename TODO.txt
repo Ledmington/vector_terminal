@@ -3,7 +3,21 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-Sort list of arrays and CSVs and aliases in alphabetical order (and maybe commands)
+REPORTED BUG:
+       "config MAX_DIFFERENT_CHARS 10" CSV not found
+
+Sort list of CSVs, aliases, commands and parameters:
+        each one of these doesn't change at runtime, except aliases
+        at each creation of a new element, put it in its "sorted" position
+        (this way we could change CSVs, commands and parameters at runtime in the future)
+
+Add parameters for "list":
+        "-a" | "--ascending" and "-d" | "--descending"
+                specify the order (ascending is default)
+        "-alp" | "--alphabetical"
+                sorts the list of arrays in alphabetical order (name)
+        "-s" | "--size"
+                sorts the list of arrays based on the size
 
 Add parameter to sort command:
        "sort --inplace" modifies the actual array with its sorted version
@@ -21,6 +35,15 @@ new parameter for 'config':
 #####################################
 #         CHANGES FOR 1.0           #
 #####################################
+
+Helpful error messages:
+         each parameter should have its own error message
+         example:
+         "print arr -r"
+         Error: parameter "-r" needs two numbers
+         usage: print <array_name> [-i] [-r A B]
+
+Add contributions/credits (for Pippo Benve)
 
 New command "errors" to show the last N errors that have been detected, together
           with the command that generated them.

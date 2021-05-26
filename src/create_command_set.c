@@ -104,9 +104,7 @@ void create_command_set() {
     add_command("print", "Prints all the elements in a certain range of the specified array.", 1, 5, &print);
     add_parameter(true, "ARRAY_NAME", NULL, 0, "The name of the array to print.");
     add_parameter(false, "-i", "--index", 0, "Prints the index of each element.");
-    #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
     add_parameter(false, "-r", "--range", 2, "Prints only the elements v[i] such that A<=i<=B.");
-    #endif
 
     //quit
     add_command("quit", "Closes the current program.", 0, 0, &quit);
@@ -124,8 +122,7 @@ void create_command_set() {
     //sort
     add_command("sort", "Sorts the given array in the specified order.", 1, 2, &sort);
     add_parameter(true, "ARRAY_NAME", NULL, 0, "The name of the existing array to be sorted.");
-    add_parameter(false, "(none)", NULL, 0, "Sorts in ascending order by default.");
-    add_parameter(false, "-a", "--ascending", 0, "Sorts in ascending order.");
+    add_parameter(false, "-a", "--ascending", 0, "Sorts in ascending order (default).");
     add_parameter(false, "-d", "--descending", 0, "Sorts in descending order.");
 
     //version
