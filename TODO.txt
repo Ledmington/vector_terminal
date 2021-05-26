@@ -3,9 +3,6 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-REPORTED BUG:
-       "config MAX_DIFFERENT_CHARS 10" CSV not found
-
 Sort list of CSVs, aliases, commands and parameters:
         each one of these doesn't change at runtime, except aliases
         at each creation of a new element, put it in its "sorted" position

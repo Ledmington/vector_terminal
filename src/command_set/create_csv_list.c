@@ -48,7 +48,7 @@ void create_csv_list(){
 	vi->pattern = new_string("*");
 	add_csv("ILLEGAL_CHARACTERS", "illchar", "All invalid characters, typing one of them generates error.", STRING, tmp, vi);
 
-	tmp.b = false;
+	tmp.b = true;
 	add_csv("UPPERCASE_ALLOWED", "upall", "If true, uppercase letters are allowed for array names.", BIT, tmp, NULL);
 
 	tmp.x = 100;
