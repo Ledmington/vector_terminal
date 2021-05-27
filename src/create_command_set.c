@@ -33,6 +33,10 @@ void create_command_set() {
     add_parameter(true, "ARRAY_2", NULL, 0, "The name of the second array.");
     add_parameter(false, "-n", "--new", 0, "The name of the new array.");
 
+    //csv
+    add_command("csv", "Prints all the Configurable System Variables", 0, 1, &csv);
+    add_parameter(false, "-a", "--all", 0, "Print all the descriptions.");
+
     //config
     add_command("config", "Allows you to change the current value of a CSV.", 2, 2, &config);
     add_parameter(true, "CSV_NAME", NULL, 0, "The name or alias of the CSV.");
@@ -58,19 +62,15 @@ void create_command_set() {
     add_parameter(false, "-s", "--set", 1, "Sets all the elements of the new array to n.");
     add_parameter(false, "-sf", "--set-from", 2, "Sets the elements of the array to the given value from the given index.");
 
-    //csv
-    add_command("csv", "Prints all the Configurable System Variables", 0, 1, &csv);
-    add_parameter(false, "-a", "--all", 0, "Print all the descriptions.");
+    //destroy
+    add_command("destroy", "Deletes an existing array.", 1, 1, &destroy);
+    add_parameter(true, "ARRAY_NAME", NULL, 0, "The name of the array to be deleted.");
 
     //delete
     add_command("delete", "Deletes an element from an existing array and resizes it", 1, 4, &delete);
     add_parameter(true, "ARRAY_NAME", NULL, 0, "The name of the existing array where to add the new element.");
     add_parameter(false, "ELEMENT_VALUE", NULL, 0, "The value to search and delete.");
     add_parameter(false, "-i", "--index", 1, "The index where to delete the element (if not specified, the last element is deleted).");
-
-    //destroy
-    add_command("destroy", "Deletes an existing array.", 1, 1, &destroy);
-    add_parameter(true, "ARRAY_NAME", NULL, 0, "The name of the array to be deleted.");
 
     //find
     add_command("find", "Finds all the elements that satisfy the specified condition.", 3, 4, &find);

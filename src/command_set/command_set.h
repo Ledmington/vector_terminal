@@ -52,9 +52,7 @@ void sort_ascending(ARRAY* arr);
 void sort_descending(ARRAY* arr);
 
 bool print(INPUT_STRING* input_str);
-#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
 void print_range(ARG* arr, const bool index);
-#endif
 
 //These two are used just in command find
 typedef bool (*comparing_function)(const int a, const int b);

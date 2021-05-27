@@ -3,10 +3,19 @@
 #   to be released after all tests have been written   #
 ########################################################
 
+REPORTED BUG:
+        "create arr 10"
+        "for 5 delete arr"
+        "for 5 delete arr"
+        "for 5 delete arr"
+        "list" -> the array "arr" has size 4294967291
+
 Sort list of CSVs, aliases, commands and parameters:
         each one of these doesn't change at runtime, except aliases
         at each creation of a new element, put it in its "sorted" position
         (this way we could change CSVs, commands and parameters at runtime in the future)
+
+Use patterns and ranges to check valid values for CSVs.
 
 Add parameters for "list":
         "-a" | "--ascending" and "-d" | "--descending"
@@ -25,12 +34,17 @@ new parameter for 'config':
     to reset all CSVs to their default values.
 
 Verbose quit?
+       Add a message at the very end, literally the last line of code,
+       like "Thanks for using Vector Terminal"
+       otherwise if the program crashes when quitting you wouldn't know
 
 Add "usage string" to each command to summarise the parameters
 
 Search CSVs and aliases based on name, using pattern_matching
       >> csv "MAX*"
         to find all CSVs whose name begins with "MAX"
+      add this feature also to command "list"
+      also command "help"?
 
 
 
@@ -48,7 +62,7 @@ Helpful error messages:
          Error: parameter "-r" needs two numbers
          usage: print <array_name> [-i] [-r A B]
 
-Add contributions/credits (for Pippo Benve)
+Add contributions/credits (for Endum)
 
 New command "errors" to show the last N errors that have been detected, together
           with the command that generated them.
