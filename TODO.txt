@@ -5,10 +5,6 @@
 
 Use patterns and ranges to check valid values for CSVs.
 
-Change merge_sort:
-        instead of allocating a new array for each call to merge,
-        use an auxiliary array.
-
 Add parameters for "list":
         "-a" | "--ascending" and "-d" | "--descending"
                 specify the order (ascending is default)

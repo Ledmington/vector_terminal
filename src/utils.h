@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 // A personal implementation of merge-sort
-void merge_sort(int* v, const unsigned int start, const unsigned int end);
-void merge(int* v, const unsigned int start, const unsigned int middle, const unsigned int end);
+void merge_sort(int* v, int* aux, const unsigned int start, const unsigned int end);
+void merge(int* v, int* aux, const unsigned int start, const unsigned int middle, const unsigned int end);
 void swap(int* a, int* b);
 
 // Reverses the given array from start to end indexes included

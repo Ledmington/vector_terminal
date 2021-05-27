@@ -8,14 +8,14 @@
 
 MU_TEST(sorting){
 	unsigned int size = 10;
-	int v[size], v2[size];
+	int v[size], v2[size], aux[size];
 	for(int i=0; i<size; i++){
 		v[i] = rand()%size;
 		v2[i] = v[i];
 	}
 
 	// Testing that sorting is effective
-	merge_sort(v, 0, size-1);
+	merge_sort(v, aux, 0, size-1);
 
 	for(int i=0; i<size-1; i++){
 		mu_check(v[i] <= v[i+1]);
@@ -28,7 +28,7 @@ MU_TEST(sorting){
 	// Testing that sorting a portion of the array does not change the rest
 	unsigned int start = 3;
 	unsigned int end = 7;
-	merge_sort(v, start, end);
+	merge_sort(v, aux, start, end);
 
 	for(int i=0; i<start; i++){
 		mu_check(v[i] == v2[i]);
