@@ -10,11 +10,6 @@ REPORTED BUG:
         "for 5 delete arr"
         "list" -> the array "arr" has size 4294967291
 
-Sort list of CSVs, aliases, commands and parameters:
-        each one of these doesn't change at runtime, except aliases
-        at each creation of a new element, put it in its "sorted" position
-        (this way we could change CSVs, commands and parameters at runtime in the future)
-
 Use patterns and ranges to check valid values for CSVs.
 
 Add parameters for "list":

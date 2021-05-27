@@ -1,20 +1,21 @@
-#include <stdio.h> // NULL
+#include <stdio.h>
 
 #include "parameters.h"
 
-void push_parameter(COMMAND* cmd, PARAMETER* param_tmp) {
+void push_parameter(COMMAND* cmd, PARAMETER* new_param) {
 	/*
 		This is in fact the push of the data structure for PARAMETERs
 	*/
-	if(param_tmp == NULL) return;
+	if(new_param == NULL ||
+        new_param->short_name == NULL) return;
 
 	if(cmd->first_param == NULL) {
-        cmd->first_param = param_tmp;
+        cmd->first_param = new_param;
     }
     else{
-        cmd->last_param->next_param = param_tmp;
+        cmd->last_param->next_param = new_param;
     }
 
-    cmd->last_param = param_tmp;
-    param_tmp->next_param = NULL;
+    cmd->last_param = new_param;
+    new_param->next_param = NULL;
 }

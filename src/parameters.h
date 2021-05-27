@@ -6,9 +6,6 @@
 #include "command.h"
 #include "parameter.h"
 
-// Function that prepares the PARAMETER structure and passes it to push_parameter()
-PARAMETER* add_parameter (const bool mandatory, const char* short_name, const char* long_name, const unsigned short int numbers_required, const char* description);
-
 PARAMETER* add_parameter_in (COMMAND* cmd, const bool mandatory, const char* short_name, const char* long_name, const unsigned short int numbers_required, const char* description);
 
 // Function that frees the memory dinamically allocated for the creation of the PARAMETER structure
