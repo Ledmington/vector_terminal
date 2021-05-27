@@ -1,5 +1,4 @@
-#ifndef COMMAND_H_INCLUDED
-#define COMMAND_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -50,5 +49,3 @@ typedef struct command {
     struct command *next_cmd;
 
 } COMMAND;
-
-#endif // COMMAND_H_INCLUDED

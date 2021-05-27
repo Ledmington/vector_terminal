@@ -1,5 +1,4 @@
-#ifndef CSV_H_INCLUDED
-#define CSV_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -56,5 +55,3 @@ typedef struct csv {
     struct csv* next_csv;
 
 } CSV;
-
-#endif // CSV_H_INCLUDED

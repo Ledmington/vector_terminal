@@ -1,5 +1,4 @@
-#ifndef ARRAY_H_INCLUDED
-#define ARRAY_H_INCLUDED
+#pragma once
 
 /*
     This structure is the representation in memory of all arrays created during
@@ -24,5 +23,3 @@ typedef struct array {
     struct array* next_array;
 
 } ARRAY;
-
-#endif // ARRAY_H_INCLUDED

@@ -1,5 +1,4 @@
-#ifndef API_H_INCLUDED
-#define API_H_INCLUDED
+#pragma once
 
 //Needed to be called before everything in the program
 void VT_start(void);
@@ -19,5 +18,3 @@ void appout(const char* str);
 
 //Function to delete all the memory allocated during the execution of the program
 void VT_end(void);
-
-#endif // API_H_INCLUDED

@@ -1,5 +1,4 @@
-#ifndef UTILS_H_INCLUDED
-#define UTILS_H_INCLUDED
+#pragma once
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -48,5 +47,3 @@ char* read_until(FILE* f, const int maxlen, const char stop);
 
 // Checks whether the given string matches the given pattern
 bool pattern_match(const char* string, const char* pattern);
-
-#endif

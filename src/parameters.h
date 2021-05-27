@@ -1,5 +1,4 @@
-#ifndef PARAMETERS_H_INCLUDED
-#define PARAMETERS_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -19,5 +18,3 @@ PARAMETER* pop_parameter(COMMAND* cmd);
 
 // Looks for a parameter with the given name in the command's parameters list
 PARAMETER* search_parameter(COMMAND* cmd, char* name);
-
-#endif // PARAMETERS_H_INCLUDED

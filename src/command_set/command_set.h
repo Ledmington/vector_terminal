@@ -1,5 +1,4 @@
-#ifndef COMMAND_SET_H_INCLUDED
-#define COMMAND_SET_H_INCLUDED
+#pragma once
 
 #include "../commands.h"
 #include "alias.h"
@@ -67,5 +66,3 @@ static bool is_less_than(const int a, const int b);
 static bool is_greater_than(const int a, const int b);
 
 bool version (INPUT_STRING* input_str);
-
-#endif // COMMAND_SET_H_INCLUDED

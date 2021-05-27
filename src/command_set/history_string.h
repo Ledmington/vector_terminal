@@ -1,5 +1,4 @@
-#ifndef HISTORY_STRING_H_INCLUDED
-#define HISTORY_STRING_H_INCLUDED
+#pragma once
 
 /*
     This structure is used just from the 'history' command to keep track of all
@@ -17,5 +16,3 @@ typedef struct history_string{
     struct history_string* next;
 
 } HISTORY_STRING;
-
-#endif // HISTORY_STRING_H_INCLUDED

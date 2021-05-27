@@ -1,5 +1,4 @@
-#ifndef ERROR_H_INCLUDED
-#define ERROR_H_INCLUDED
+#pragma once
 
 #include "error_code.h"
 
@@ -16,5 +15,3 @@ void print_error_code(const error_code err, const char* str);
 // Prints the message corresponding to the value of the variable "error"
 void print_error(const char* str);
 #endif
-
-#endif // ERROR_H_INCLUDED

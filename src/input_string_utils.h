@@ -1,5 +1,4 @@
-#ifndef INPUT_STRING_UITLS_H_INCLUDED
-#define INPUT_STRING_UITLS_H_INCLUDED
+#pragma once
 
 #include "input_string.h"
 
@@ -16,5 +15,3 @@ INPUT_STRING* set_command_line(char* str);
 
 //Deletes the first string of the given structure
 INPUT_STRING* reduce_input_string(INPUT_STRING* input_str);
-
-#endif // INPUT_STRING_UITLS_H_INCLUDED

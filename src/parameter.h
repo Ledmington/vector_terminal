@@ -1,5 +1,4 @@
-#ifndef PARAMETER_H_INCLUDED
-#define PARAMETER_H_INCLUDED
+#pragma once
 
 //The structure that holds all the information about a parameter.
 typedef struct parameter {
@@ -22,5 +21,3 @@ typedef struct parameter {
     struct parameter *next_param;
 
 } PARAMETER;
-
-#endif // PARAMETER_H_INCLUDED

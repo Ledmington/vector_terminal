@@ -1,5 +1,4 @@
-#ifndef INPUT_STRING_H_INCLUDED
-#define INPUT_STRING_H_INCLUDED
+#pragma once
 
 /*
     The structure that holds all the parameters given from input
@@ -14,5 +13,3 @@ typedef struct input_string {
     char** params;
 
 } INPUT_STRING;
-
-#endif // INPUT_STRING_H_INCLUDED

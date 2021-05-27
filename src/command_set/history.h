@@ -1,5 +1,4 @@
-#ifndef HISTORY_H_INCLUDED
-#define HISTORY_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -17,5 +16,3 @@ HISTORY_STRING* first;
 HISTORY_STRING* last;
 
 bool history(INPUT_STRING* input_str);
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef ALIAS_UTILS_H_INCLUDED
-#define ALIAS_UTILS_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -50,5 +49,3 @@ char* substitute_alias(char* str, ALIAS* alias);
 //Real commands
 bool alias(INPUT_STRING* input_str);
 bool unalias(INPUT_STRING* input_str);
-
-#endif // ALIAS_UTILS_H_INCLUDED

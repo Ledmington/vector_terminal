@@ -1,5 +1,5 @@
 ########################################################
-#                   CHANGES FOR 0.1                    #
+#                   CHANGES FOR 0.2                    #
 #   to be released after all tests have been written   #
 ########################################################
 
@@ -8,9 +8,6 @@ Use patterns and ranges to check valid values for CSVs.
 Change merge_sort:
         instead of allocating a new array for each call to merge,
         use an auxiliary array.
-
-Refactoring:
-        substitute all include guards with #pragma once
 
 Add parameters for "list":
         "-a" | "--ascending" and "-d" | "--descending"

@@ -1,5 +1,4 @@
-#ifndef COMMANDS_H_INCLUDED
-#define COMMANDS_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -127,5 +126,3 @@ unsigned int count_char_diff(char* str, char* buffer);
 //Searches in the COMMANDs queue all the similar commands, and prints them
 void print_similar_commands(char* str);
 #endif
-
-#endif // COMMANDS_H_INCLUDED

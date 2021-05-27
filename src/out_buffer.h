@@ -1,9 +1,11 @@
-#ifndef OUT_BUFFER_H_INCLUDED
-#define OUT_BUFFER_H_INCLUDED
+#pragma once
 
 typedef struct out_buff {
-	char* message;
-	struct out_buff* next;
-} out_buffer;
 
-#endif // OUT_BUFFER_H_INCLUDED
+	// Message to be printed
+	char* message;
+
+	// Pointer to the next buffer
+	struct out_buff* next;
+
+} out_buffer;

@@ -1,5 +1,4 @@
-#ifndef CSV_UTILS_H_INCLUDED
-#define CSV_UTILS_H_INCLUDED
+#pragma once
 
 #include <stdbool.h>
 
@@ -78,5 +77,3 @@ void load_all_csv(void);
 // Writes the values of all CSVs on file defined in "csvfile"
 // only if "save" is true
 void save_all_csv(void);
-
-#endif // CSV_UTILS_H_INCLUDED

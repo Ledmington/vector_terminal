@@ -1,5 +1,4 @@
-#ifndef ERROR_CODE_H_INCLUDED
-#define ERROR_CODE_H_INCLUDED
+#pragma once
 
 /*
     Enumeration for managing various types of errors.
@@ -47,6 +46,5 @@ typedef enum {
     out_of_memory           =23,
 
     really_bad_error        =24
+    
 } error_code;
-
-#endif // ERROR_CODE_H_INCLUDED
