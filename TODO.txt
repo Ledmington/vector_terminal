@@ -3,13 +3,6 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-REPORTED BUG:
-        "create arr 10"
-        "for 5 delete arr"
-        "for 5 delete arr"
-        "for 5 delete arr"
-        "list" -> the array "arr" has size 4294967291
-
 Use patterns and ranges to check valid values for CSVs.
 
 Change merge_sort:
@@ -120,12 +113,6 @@ new command "examples"
         to distinguish references to examples a special symbol can be used)
 
 new parameter for 'list':
-	"-s" | "--sorted" outputs the list of arrays sorted
-		"-sa" sorts alphabetically arrays' names
-		"-sl" sorts arrays's lengths
-		"asc"(default) or "desc"
-
-new parameter for 'list':
 	"-ws" | "--with-size" outputs a list of all the existing arrays with the given size.
 		when specified, takes one mandatory parameter: the number representing the size.
 
@@ -162,6 +149,12 @@ new command "avg":
 new command "stddev":
     like "avg":
     calculates the standard deviation of the elements of the given array 
+
+Logic/boolean expression with arrays?
+Or even normal arithmetic expressions?
+       if A, B and C are three existing arrays
+       the command "sum A (mul A B) -r C" (maybe not this syntax)
+       will perform C = A+(A*B) on each element of the arrays
 
 new command "size":
 	takes one mandatory parameter: the name of an existing array.

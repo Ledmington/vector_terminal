@@ -5,6 +5,8 @@
 
 void delete_at(ARRAY* arr, bool index_defined, unsigned int index, bool value_defined, int value){
 
+	if(arr->size == 0) return;
+
 	if(index_defined == false){
 		if(value_defined == false){
 			//Mode 1

@@ -45,6 +45,7 @@ bool delete(INPUT_STRING* input_str){
     	#endif
     	return false;
     }
+    
     current_param++;
 
     if(params_finished(current_param, input_str)){
