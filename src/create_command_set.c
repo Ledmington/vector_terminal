@@ -40,10 +40,11 @@ void create_command_set() {
     add_parameter_in(cmd, false, "-a", "--all", 0, "Print all the descriptions.");
 
     //config
-    cmd = add_command("config", "Allows you to change the current value of a CSV.", "config <csv> [<value> | -d]", 2, 2, &config);
+    cmd = add_command("config", "Allows you to change the current value of a CSV.", "config [<csv> [<value> | -d]] [-d -a]", 2, 2, &config);
     add_parameter_in(cmd, true, "CSV_NAME", NULL, 0, "The name or alias of the CSV.");
     add_parameter_in(cmd, false, "NEW_VALUE", NULL, 0, "The new value of the CSV.");
     add_parameter_in(cmd, false, "-d", "--default", 0, "Resets the default value.");
+    add_parameter_in(cmd, false, "-a", "--all", 0, "Resets the default value for all CSVs (only if specified after \"-d\".");
 
     //copy
     cmd = add_command("copy", "Creates a new array copying the content from an existing one.", "copy <old_array> <new_array>", 2, 2, &copy);

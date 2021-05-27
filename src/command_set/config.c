@@ -16,25 +16,39 @@ bool config ( INPUT_STRING* input_str ) {
 
 		config fin -d
 			sets the value of "DEFAULT_INPUT_FILE" to its default value ("input.txt")
+
+		config -d -a
+			sets the default value for all CSVs
 	*/
 
 	unsigned int current_param = 0;
 	COMMAND* cmd = search_command("config");
 	CSV* tmp = search_csv(input_str->params[current_param]);
+	current_param++;
+	bool reset_default = search_parameter(cmd, input_str->params[current_param]) == search_parameter(cmd, "-d");
+	bool reset_all = (search_parameter(cmd, input_str->params[0]) == search_parameter(cmd, "-d")) &&
+	                 (search_parameter(cmd, input_str->params[1]) == search_parameter(cmd, "-a"));
 
-	if (tmp == NULL) {
+	if(tmp != NULL && reset_default) {
+		reset(tmp);
+		update_all_csv();
+		return true;
+	}
+	else if(reset_all) {
+		CSV* tmp_csv = csv_list;
+			while(tmp_csv != NULL) {
+				reset(tmp_csv);
+				tmp_csv = tmp_csv->next_csv;
+			}
+			update_all_csv();
+			return true;
+	}
+	else if(tmp == NULL) {
+		error = csv_not_found;
 		#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
 		print_error(help_msg);
 		#endif
 		return false;
-	}
-
-	current_param++;
-
-	if (search_parameter(cmd, input_str->params[current_param]) == search_parameter(cmd, "-d")) {
-		reset(tmp);
-		update_all_csv();
-		return true;
 	}
 
 	unsigned int a;

@@ -17,10 +17,6 @@ Add parameter for print command:
         "--sorted" to print the elements of the array in order
         using this parameter doesn't modify the array in memory
 
-new parameter for 'config':
-    after param "-d" | "--default" it will be possible to add another parameter "-a" | "--all"
-    to reset all CSVs to their default values.
-
 Search CSVs and aliases based on name, using pattern_matching
       >> csv "MAX*"
         to find all CSVs whose name begins with "MAX"

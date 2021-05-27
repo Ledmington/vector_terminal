@@ -9,7 +9,7 @@ bool version (INPUT_STRING* input_str) {
 	/*
 		Prints the string representing the version number of the terminal.
 	*/
-	const char* ver = new_string("Vector Terminal v0.2.1\n");
+	const char* ver = new_string("Vector Terminal v0.2.2\n");
 
 	if (input_str->num_parameters != 0) {
 		error = too_many_parameters;
