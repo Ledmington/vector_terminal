@@ -28,6 +28,9 @@ typedef struct command {
     //A description of the behavior of the command
     char* description;
 
+    //A string that describes the usage of the command
+    char* usage;
+
     //The minimum number of parameters required to not receive an error
     unsigned int min_params;
 

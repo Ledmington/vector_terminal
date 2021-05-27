@@ -50,7 +50,7 @@ extern out_buffer* output_string;
 //********COMMANDs****************
 
 //This function prepares the COMMAND structure and passes it to push_command
-COMMAND* add_command(char* name, char* description, unsigned int min_params, unsigned int max_params, void* command_pointer);
+COMMAND* add_command(char* name, char* description, char* usage, unsigned int min_params, unsigned int max_params, void* command_pointer);
 
 //Function that frees the memory dinamically allocated for the creation of the COMMAND structure
 void delete_command(COMMAND* cmd);

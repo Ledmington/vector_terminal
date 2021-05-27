@@ -16,5 +16,6 @@ void delete_command(COMMAND* cmd) {
 
     free(cmd->name);
     free(cmd->description);
+    free(cmd->usage);
     free(cmd);
 }

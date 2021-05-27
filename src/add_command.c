@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 
-COMMAND* add_command(char* name, char* description, unsigned int min_params, unsigned int max_params, void* command_pointer) {
+COMMAND* add_command(char* name, char* description, char* usage, unsigned int min_params, unsigned int max_params, void* command_pointer) {
     /*
         The new command is added to the tail of the command_set queue.
         In fact, that queue is a linked list managed as a queue.
@@ -27,6 +27,8 @@ COMMAND* add_command(char* name, char* description, unsigned int min_params, uns
     cmd->name = new_string(name);
 
     cmd->description = new_string(description);
+
+    cmd->usage = new_string(usage);
 
     cmd->min_params = min_params;
     cmd->max_params = max_params;

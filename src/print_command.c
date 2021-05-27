@@ -5,6 +5,7 @@
 
 #include "commands.h"
 #include "api.h"
+#include "utils.h"
 
 void print_command(COMMAND *cmd, bool with_parameters) {
     /*
@@ -14,6 +15,11 @@ void print_command(COMMAND *cmd, bool with_parameters) {
     unsigned int size = 300;
     char* tmp = (char*) calloc(size, sizeof(char));
     sprintf(tmp, " %-10s\t%s\n", cmd->name, cmd->description);
+    appout(tmp);
+    free(tmp);
+
+    tmp = (char*) calloc(size, sizeof(char));
+    sprintf(tmp, "\tUsage: %s\n", cmd->usage);
     appout(tmp);
     free(tmp);
 
