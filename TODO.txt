@@ -43,7 +43,7 @@ New command "errors" to show the last N errors that have been detected, together
           with the command that generated them.
           Each error will be added at the end of a queue (maybe with a timestamp)
           and calling command "errors" will clear the error's queue.
-          (like OpenGL)
+          (like OpenGL) (for better debugging when executing scripts)
 
 ADD LOGGER (isn't it what the command 'history' does?)
          (maybe in memory or on a file, to allow bugs to be reproduced)
