@@ -77,9 +77,24 @@ bool config ( INPUT_STRING* input_str ) {
 				#endif
 				return false;
 			}
+			if(tmp->value_info != NULL &&
+				(a<tmp->value_info->range.min || a>tmp->value_info->range.max)) {
+				error = invalid_number;
+				#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
+				print_error(help_msg);
+				#endif
+				return false;
+			}
 			tmp->actual_value.x = a;
 			break;
 		case STRING:
+			if(tmp->value_info != NULL && !pattern_match(input_str->params[current_param], tmp->value_info->pattern)) {
+				error = invalid_string;
+				#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
+				print_error(help_msg);
+				#endif
+				return false;
+			}
 			tmp->actual_value.s = new_string(input_str->params[current_param]);
 			break;
 		default:

@@ -3,8 +3,6 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-Use patterns and ranges to check valid values for CSVs.
-
 Add parameters for "list":
         "-a" | "--ascending" and "-d" | "--descending"
                 specify the order (ascending is default)
