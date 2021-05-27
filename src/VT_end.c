@@ -44,5 +44,7 @@ void VT_end() {
 
     free(illegal_char_positions);
 
+    #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
     printf("Thank you for having used Vector Terminal. <3\n");
+    #endif
 }

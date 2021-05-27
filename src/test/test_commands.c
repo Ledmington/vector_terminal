@@ -20,9 +20,10 @@ MU_TEST(test_command_queue){
 	// create command A
 	char* name = "A";
 	char* desc = "test command";
+	char* usage = "A";
 	unsigned int minp = 0;
 	unsigned int maxp = 2;
-	COMMAND* a = add_command(name, desc, minp, maxp, &test_function);
+	COMMAND* a = add_command(name, desc, usage, minp, maxp, &test_function);
 	
 	// check command A is in the queue (both start and end)
 	mu_check(command_set == a);
@@ -41,7 +42,7 @@ MU_TEST(test_command_queue){
 	mu_check(a->next_cmd == NULL);
 
 	// create command B
-	COMMAND* b = add_command("B", "another test command", 0, 0, &test_function);
+	COMMAND* b = add_command("B", "another test command", "some usage", 0, 0, &test_function);
 
 	// check command B is in the queue (at the end)
 	mu_check(search_command("B") != NULL);
@@ -77,7 +78,7 @@ MU_TEST(test_command_queue){
 
 MU_TEST(test_parameter_queue){
 	// create test command
-	COMMAND* c = add_command("A", "test command", 0, 2, &test_function);
+	COMMAND* c = add_command("A", "test command", "usage", 0, 2, &test_function);
 
 	// check parameter queue is empty
 	mu_check(c->first_param == NULL);
@@ -87,12 +88,12 @@ MU_TEST(test_parameter_queue){
 	char* sn = "-a";
 	char* ln = "--all";
 	char* desc = "test description";
-	PARAMETER* p = add_parameter_in(c,false, sn, ln, 0, desc);
+	PARAMETER* p = add_parameter_in(c, false, sn, ln, 0, desc);
 
 	// check parameter A is in the queue (both start and end)
 	mu_check(c->first_param == p);
 	mu_check(c->last_param == p);
-	mu_check(search_parameter(c,sn) == p);
+	mu_check(search_parameter(c, sn) == p);
 
 	// check fields inside
 	mu_check(p->mandatory == false);
@@ -104,12 +105,12 @@ MU_TEST(test_parameter_queue){
 
 	// create parameter B
 	char* bn = "-bb";
-	PARAMETER* b = add_parameter_in(c,false, bn, NULL, 0, NULL);
+	PARAMETER* b = add_parameter_in(c, false, bn, NULL, 0, NULL);
 
 	// check parameter B is in the queue (at the end)
 	mu_check(c->last_param == b);
 	mu_check(b->next_param == NULL);
-	mu_check(search_parameter(c,bn) == b);
+	mu_check(search_parameter(c, bn) == b);
 
 	// check parameter B is after command A
 	mu_check(p->next_param == b);
@@ -119,12 +120,12 @@ MU_TEST(test_parameter_queue){
 	delete_parameter(p);
 
 	// check parameter A is not in the queue
-	mu_check(search_parameter(c,sn) == NULL);
+	mu_check(search_parameter(c, sn) == NULL);
 
 	// check parameter B is in the queue (both start and end)
 	mu_check(c->first_param == b);
 	mu_check(c->last_param == b);
-	mu_check(search_parameter(c,bn) == b);
+	mu_check(search_parameter(c, bn) == b);
 
 	// delete parameter B
 	mu_check(pop_parameter(c) == b);
