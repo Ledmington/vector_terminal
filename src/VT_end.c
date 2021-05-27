@@ -43,4 +43,6 @@ void VT_end() {
 	free(illchar);
 
     free(illegal_char_positions);
+
+    printf("Thank you for having used Vector Terminal. <3\n");
 }

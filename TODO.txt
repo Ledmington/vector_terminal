@@ -12,6 +12,13 @@ REPORTED BUG:
 
 Use patterns and ranges to check valid values for CSVs.
 
+Change merge_sort:
+        instead of allocating a new array for each call to merge,
+        use an auxiliary array.
+
+Refactoring:
+        substitute all include guards with #pragma once
+
 Add parameters for "list":
         "-a" | "--ascending" and "-d" | "--descending"
                 specify the order (ascending is default)
@@ -20,18 +27,13 @@ Add parameters for "list":
         "-s" | "--size"
                 sorts the list of arrays based on the size
 
-Add parameter to sort command:
-       "sort --inplace" modifies the actual array with its sorted version
-       without "--inplace", the command "sort" prints the elements of the array in order
+Add parameter for print command:
+        "--sorted" to print the elements of the array in order
+        using this parameter doesn't modify the array in memory
 
 new parameter for 'config':
     after param "-d" | "--default" it will be possible to add another parameter "-a" | "--all"
     to reset all CSVs to their default values.
-
-Verbose quit?
-       Add a message at the very end, literally the last line of code,
-       like "Thanks for using Vector Terminal"
-       otherwise if the program crashes when quitting you wouldn't know
 
 Add "usage string" to each command to summarise the parameters
 
