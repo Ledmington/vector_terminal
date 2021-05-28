@@ -21,6 +21,8 @@ Search CSVs and aliases based on name, using pattern_matching
       add this feature also to command "list"
       also command "help"?
 
+Refactoring:
+        how many times is "output" called?
 
 
 

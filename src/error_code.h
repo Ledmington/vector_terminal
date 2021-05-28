@@ -40,11 +40,12 @@ typedef enum {
 
     invalid_number          =20,
     invalid_string          =21,
+    invalid_ordering        =22,
     
-    value_info_needed       =22,
+    value_info_needed       =23,
 
-    out_of_memory           =23,
+    out_of_memory           =24,
 
-    really_bad_error        =24
+    really_bad_error        =25
     
 } error_code;

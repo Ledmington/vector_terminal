@@ -101,7 +101,11 @@ void create_command_set() {
     add_parameter_in(cmd, false, "COMMAND_NUMBER", NULL, 1, "The number of the command you want to execute.");
 
     //list
-    cmd = add_command("list", "Prints the list of all created arrays.", "list", 0, 0, &list);
+    cmd = add_command("list", "Prints the list of all created arrays.", "list [-a | -d] [-alp | -s]", 0, 2, &list);
+    add_parameter_in(cmd, false, "-a", "--ascending", 0, "Sorts the arrays in ascending order.");
+    add_parameter_in(cmd, false, "-d", "--descending", 0, "Sorts the arrays in descending order.");
+    add_parameter_in(cmd, false, "-alp", "--alphabetical", 0, "Sorts the arrays based on their names.");
+    add_parameter_in(cmd, false, "-s", "--size", 0, "Sorts the arrays based on their size.");
 
     //print
     cmd = add_command("print", "Prints all the elements in a certain range of the specified array.", "print <array> [-i] [-r <start> <end>]", 1, 5, &print);

@@ -87,6 +87,9 @@ void print_error_code(const error_code err, const char* str) {
         case really_bad_error:
         	appout("a really bad error happened.");
         	break;
+        case invalid_ordering:
+        	appout("invalid ordering.");
+        	break;
         default:
             appout("WHAT? there's an undefined error type?");
             break;
