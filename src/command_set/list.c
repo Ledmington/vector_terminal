@@ -1,9 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "command_set.h"
 #include "../api.h"
 #include "../error.h"
 #include "../parameters.h"
+
+extern unsigned int NUM_ARRAYS;
+
+// Alphabetical sorting
+int alph_sort(const void *a, const void *b) {
+    ARRAY* v1 = *(ARRAY**) a;
+    ARRAY* v2 = *(ARRAY**) b;
+    return strcmp(v1->name, v2->name);
+}
+
+// "Numerical" sorting
+int size_sort(const void *a, const void *b) {
+    ARRAY* v1 = *(ARRAY**) a;
+    ARRAY* v2 = *(ARRAY**) b;
+    return (int)(v1->size) - (int)(v2->size);
+}
 
 bool list(INPUT_STRING* input_str){
     /*
@@ -15,8 +33,7 @@ bool list(INPUT_STRING* input_str){
     bool descending = false;
     bool sort_by_name = false;
     bool sort_by_size = false;
-
-
+    ARRAY* array_tmp;
 
     for(unsigned int current_param = 0; current_param < input_str->num_parameters; current_param++) {
         if(search_parameter(cmd, input_str->params[current_param]) == search_parameter(cmd, "-a")) {
@@ -60,26 +77,40 @@ bool list(INPUT_STRING* input_str){
         appout("\n Array list is empty...\n\n");
     }
     else {
+        // Create temporary list
+        ARRAY** tmp_list = (ARRAY**) malloc(NUM_ARRAYS * sizeof(ARRAY*));
+        array_tmp = array_list;
+        for(unsigned int i=0; i<NUM_ARRAYS; i++) {
+            tmp_list[i] = array_tmp;
+            array_tmp = array_tmp->next_array;
+        }
+
         if(sort_by_name) {
             // Sort alphabetically
+            qsort(tmp_list, NUM_ARRAYS, sizeof(ARRAY*), alph_sort);
         }
         else if(sort_by_size) {
             // Sort "numerically"
+            qsort(tmp_list, NUM_ARRAYS, sizeof(ARRAY*), size_sort);
         }
 
         if(descending) {
             // Reverse temporary list
+            for (unsigned int i = 0; i < NUM_ARRAYS/2; i++) {
+                ARRAY* temp = tmp_list[i];
+                tmp_list[i] = tmp_list[NUM_ARRAYS - 1 - i];
+                tmp_list[NUM_ARRAYS - 1 - i] = temp;
+            }
         }
 
         // Print temporary list
-        ARRAY* array_tmp = array_list;
-        while(array_tmp != NULL){
+        for(unsigned int i=0; i<NUM_ARRAYS; i++) {
             sprintf(tmp, "Name: %s\n"
-                         "Size: %u\n\n", array_tmp->name, array_tmp->size);
+                         "Size: %u\n\n", tmp_list[i]->name, tmp_list[i]->size);
             appout(tmp);
-
-            array_tmp = array_tmp->next_array;
         }
+
+        free(tmp_list);
     }
 
     error = no_error;

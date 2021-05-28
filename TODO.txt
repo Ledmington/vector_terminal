@@ -3,14 +3,6 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-Add parameters for "list":
-        "-a" | "--ascending" and "-d" | "--descending"
-                specify the order (ascending is default)
-        "-alp" | "--alphabetical"
-                sorts the list of arrays in alphabetical order (name)
-        "-s" | "--size"
-                sorts the list of arrays based on the size
-
 Add parameter for print command:
         "--sorted" to print the elements of the array in order
         using this parameter doesn't modify the array in memory
@@ -23,6 +15,11 @@ Search CSVs and aliases based on name, using pattern_matching
 
 Refactoring:
         how many times is "output" called?
+
+Replace merge_sort and merge with a call to stdlib's qsort
+
+Add a CSV to print a message (or not) at the beginning of each
+      iteration when calling the command "for"
 
 
 
@@ -52,6 +49,12 @@ ADD LOGGER (isn't it what the command 'history' does?)
 
 Add a boolean to CSVs to know whether it was modified.
 	use that timestamp to update only the ones modified during 'updateCSVs()'
+
+Add timestamps to each array:
+       one for the creation
+       one for the last modify
+       change command "list" to print also these
+       add a CSV to decide which one to use (?)
 
 Add LOG as a boolean CSV:
     if set to true, the terminal writes some info on a file after each command.

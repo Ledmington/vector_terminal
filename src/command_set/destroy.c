@@ -4,6 +4,8 @@
 #include "../commands.h"
 #include "../error.h"
 
+extern unsigned int NUM_ARRAYS;
+
 bool destroy(INPUT_STRING* input_str){
     /*
         Deletes an existing array
@@ -49,6 +51,8 @@ bool destroy(INPUT_STRING* input_str){
 
     prev->next_array = array_tmp->next_array;
     free_array(array_tmp);
+
+    NUM_ARRAYS--;
 
     error = no_error;
     return true;

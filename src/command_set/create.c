@@ -12,6 +12,8 @@
 
 ARRAY* array_list = NULL;
 
+unsigned int NUM_ARRAYS = 0;
+
 bool create(INPUT_STRING* input_str){
     /*
         Creates a new array
@@ -184,6 +186,8 @@ bool create(INPUT_STRING* input_str){
 
     new_array->next_array = array_list;
     array_list = new_array;
+
+    NUM_ARRAYS++;
 
     error = no_error;
     return true;
