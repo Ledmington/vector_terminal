@@ -108,13 +108,13 @@ void create_command_set() {
     add_parameter_in(cmd, false, "-s", "--size", 0, "Sorts the arrays based on their size.");
 
     //print
-    cmd = add_command("print", "Prints all the elements in a certain range of the specified array.", "print <array> [-i] [-r <start> <end>]", 1, 5, &print);
+    cmd = add_command("print", "Prints all the elements in a certain range of the specified array.", "print <array> [-i] [-r <start> <end>] [-s]", 1, 6, &print);
     add_parameter_in(cmd, true, "ARRAY_NAME", NULL, 0, "The name of the array to print.");
     add_parameter_in(cmd, false, "-i", "--index", 0, "Prints the index of each element.");
     add_parameter_in(cmd, false, "-r", "--range", 2, "Prints only the elements v[i] such that A<=i<=B.");
 
     //quit
-    cmd = add_command("quit", "Closes the current program.", "quit", 0, 0, &quit);
+    cmd = add_command("quit", "Closes Vector Terminal.", "quit", 0, 0, &quit);
 
     //read
     cmd = add_command("read", "Reads commands from an input file. If not specified, it is DEFAULT_INPUT_FILE.", "read [<file>]", 0, 1, &read);
