@@ -36,7 +36,8 @@ void create_command_set() {
     add_parameter_in(cmd, false, "-n", "--new", 0, "The name of the new array.");
 
     //csv
-    cmd = add_command("csv", "Prints all the Configurable System Variables", "csv [-a]", 0, 1, &csv);
+    cmd = add_command("csv", "Prints all the Configurable System Variables", "csv [\"pattern\"] [-a]", 0, 2, &csv);
+    add_parameter_in(cmd, false, "string pattern", NULL, 0, "Pattern to match all CSVs to print.");
     add_parameter_in(cmd, false, "-a", "--all", 0, "Print all the descriptions.");
 
     //config
