@@ -92,10 +92,9 @@ void create_command_set() {
     add_parameter_in(cmd, true, "COMMAND", NULL, 0, "The command to be executed.");
 
     //help
-    cmd = add_command("help", "Prints useful informations.", "help [<command>] [-s]", 0, 2, &help);
-    add_parameter_in(cmd, false, "(none)", NULL, 0, "Prints all the command set with all parameters.");
-    add_parameter_in(cmd, false, "COMMAND", NULL, 0, "Prints the description of the command and of all its parameters.");
-    add_parameter_in(cmd, false, "-s", "--short", 0, "Prints just the description.");
+    cmd = add_command("help", "Prints useful informations.", "help [\"pattern\"] [-s]", 0, 2, &help);
+    add_parameter_in(cmd, false, "\"pattern\"", NULL, 0, "Pattern to search the commands to print help for.");
+    add_parameter_in(cmd, false, "-s", "--short", 0, "Prints just the description (disabled by default).");
 
     //history
     cmd = add_command("history", "Prints a list of all commands sent since this program started.", "history [<number>]", 0, 1, &history);
