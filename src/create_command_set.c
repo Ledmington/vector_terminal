@@ -101,7 +101,8 @@ void create_command_set() {
     add_parameter_in(cmd, false, "COMMAND_NUMBER", NULL, 1, "The number of the command you want to execute.");
 
     //list
-    cmd = add_command("list", "Prints the list of all created arrays.", "list [-a | -d] [-alp | -s]", 0, 2, &list);
+    cmd = add_command("list", "Prints the list of all created arrays.", "list [\"pattern\"] [-a | -d] [-alp | -s]", 0, 3, &list);
+    add_parameter_in(cmd, false, "\"pattern\"", NULL, 0, "The pattern to search arrays.");
     add_parameter_in(cmd, false, "-a", "--ascending", 0, "Sorts the arrays in ascending order.");
     add_parameter_in(cmd, false, "-d", "--descending", 0, "Sorts the arrays in descending order.");
     add_parameter_in(cmd, false, "-alp", "--alphabetical", 0, "Sorts the arrays based on their names.");

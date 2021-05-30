@@ -3,12 +3,6 @@
 #   to be released after all tests have been written   #
 ########################################################
 
-Search CSVs and aliases based on name, using pattern_matching
-      >> csv "MAX*"
-        to find all CSVs whose name begins with "MAX"
-      add this feature also to command "list"
-      also command "help"?
-
 Add a CSV to print a message (or not) at the beginning of each
       iteration when calling the command "for"
 
