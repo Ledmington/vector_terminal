@@ -6,42 +6,6 @@
 
 #include "../utils.h"
 
-MU_TEST(sorting){
-	unsigned int size = 10;
-	int v[size], v2[size], aux[size];
-	for(int i=0; i<size; i++){
-		v[i] = rand()%size;
-		v2[i] = v[i];
-	}
-
-	// Testing that sorting is effective
-	merge_sort(v, aux, 0, size-1);
-
-	for(int i=0; i<size-1; i++){
-		mu_check(v[i] <= v[i+1]);
-	}
-
-	for(int i=0; i<size; i++){
-		v[i] = v2[i];
-	}
-
-	// Testing that sorting a portion of the array does not change the rest
-	unsigned int start = 3;
-	unsigned int end = 7;
-	merge_sort(v, aux, start, end);
-
-	for(int i=0; i<start; i++){
-		mu_check(v[i] == v2[i]);
-	}
-	for(int i=start; i<end-1; i++){
-		mu_check(v[i] <= v[i+1]);
-	}
-	for(int i=end+1; i<size; i++){
-		mu_check(v[i] == v2[i]);
-	}
-
-}
-
 MU_TEST(convert_int){
 	// Empty string must return 0
 	mu_check(str_to_int("") == 0);
@@ -147,7 +111,6 @@ MU_TEST(pattern_matching){
 }
 
 MU_TEST_SUITE(test_utils){
-	MU_RUN_TEST(sorting);
 	MU_RUN_TEST(convert_int);
 	MU_RUN_TEST(convert_uint);
 	MU_RUN_TEST(file_reading);
