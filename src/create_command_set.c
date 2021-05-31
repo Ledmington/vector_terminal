@@ -134,7 +134,7 @@ void create_command_set() {
     add_parameter_in(cmd, false, "-d", "--descending", 0, "Sorts in descending order.");
 
     //version
-    cmd = add_command("version", "Shows the version number of the terminal.", "version", 0, 0, &version);
+    cmd = add_command("version", "Shows the version number of the terminal and the license message.", "version", 0, 0, &version);
 
     //unalias
     cmd = add_command("unalias", "Lets you undefine an already existing alias", "unalias <alias>", 1, 1, &unalias);
