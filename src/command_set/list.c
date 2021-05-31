@@ -52,8 +52,9 @@ bool list(INPUT_STRING* input_str){
         }
         else {
             if(pattern != NULL) {
+                error = too_many_parameters;
                 #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
-                print_error("cannot set the pattern twice.");
+                print_error(help_msg);
                 #endif
                 return false;
             }

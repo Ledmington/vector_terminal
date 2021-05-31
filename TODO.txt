@@ -3,6 +3,9 @@
 #   to be released after all tests have been written   #
 ########################################################
 
+test_history
+test_errors
+
 Add a CSV to print a message (or not) at the beginning of each
       iteration when calling the command "for"
 
