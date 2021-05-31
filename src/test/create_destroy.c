@@ -215,12 +215,12 @@ MU_TEST(array_stack) {
 MU_TEST_SUITE(test_create) {
 	MU_SUITE_CONFIGURE(&VT_start, &VT_end);
 
-	//MU_RUN_TEST(correct_create);
-	//MU_RUN_TEST(correct_destroy);
-	//MU_RUN_TEST(wrong_create);
-	//MU_RUN_TEST(wrong_destroy);
+	MU_RUN_TEST(correct_create);
+	MU_RUN_TEST(correct_destroy);
+	MU_RUN_TEST(wrong_create);
+	MU_RUN_TEST(wrong_destroy);
 	MU_RUN_TEST(borderline_correct_create);
-	//MU_RUN_TEST(array_stack);
+	MU_RUN_TEST(array_stack);
 }
 
 int main ( void ) {
