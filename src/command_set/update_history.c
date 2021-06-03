@@ -13,12 +13,12 @@ void update_history(const char* str){
     tmp->command_string = new_string(str);
     tmp->next = NULL;
 
-    if(first == NULL){
-        first = tmp;
-        last = tmp;
+    if(history_first == NULL){
+        history_first = tmp;
+        history_last = tmp;
         return;
     }
 
-    last->next = tmp;
-    last = tmp;
+    history_last->next = tmp;
+    history_last = tmp;
 }

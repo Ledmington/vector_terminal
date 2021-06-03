@@ -9,11 +9,11 @@ bool history(INPUT_STRING* input_str){
     char str[maxin];
 
     if(input_str->num_parameters == 0){
-        HISTORY_STRING* tmp = first;
+        HISTORY_STRING* tmp = history_first;
         unsigned int index = 1;
         while(tmp != NULL){
             #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
-            sprintf(str, "\t%3u  ->  %s\n", index, tmp->command_string);
+            sprintf(str, "  %3u  ->  %s\n", index, tmp->command_string);
             appout(str);
             #endif
             index++;
@@ -29,7 +29,7 @@ bool history(INPUT_STRING* input_str){
             return false;
         }
         else{
-            HISTORY_STRING* tmp = first;
+            HISTORY_STRING* tmp = history_first;
             unsigned int index = 1;
             while(tmp!=NULL && index<command_num){
                 index++;

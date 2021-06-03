@@ -14,13 +14,13 @@ void VT_end() {
 	clear_command_set();
 
 	//Delete all history
-    HISTORY_STRING* hs_tmp = first;
+    HISTORY_STRING* hs_tmp = history_first;
     while(hs_tmp != NULL) {
-        first = first->next;
+        history_first = history_first->next;
         free(hs_tmp);
-        hs_tmp = first;
+        hs_tmp = history_first;
     }
-    last = NULL;
+    history_last = NULL;
 
     //Delete all arrays
     ARRAY* array_tmp = array_list;
