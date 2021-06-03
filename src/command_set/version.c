@@ -11,7 +11,7 @@ bool version (INPUT_STRING* input_str) {
 		and the license message.
 	*/
 	const char* ver = new_string(
-		"Vector Terminal v0.3.4\n"
+		"Vector Terminal v0.3.5\n"
 		"Copyright (C) 2021  Ledmington\n"
     	"This program comes with ABSOLUTELY NO WARRANTY and is free software.\n"
     	"For details, see the file \"LICENSE\".\n");

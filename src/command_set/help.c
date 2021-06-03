@@ -5,6 +5,7 @@
 #include "../parameters.h"
 #include "../error.h"
 #include "../utils.h"
+#include "../api.h"
 
 bool help(INPUT_STRING* input_str){
     /*
@@ -36,22 +37,24 @@ bool help(INPUT_STRING* input_str){
         }
     }
 
+    #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
+    if(with_parameters) {
+        appout("(USEFUL: \'**\' before a parameter means that it is mandatory for that command.)\n\n");
+    }
+
     if(pattern == NULL) {
-        #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
         print_command_set(with_parameters);
-        #endif
     }
     else {
         COMMAND* tmp_cmd = command_set;
-        #if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
         while(tmp_cmd != NULL) {
             if(pattern_match(tmp_cmd->name, pattern)) {
                 print_command(tmp_cmd, with_parameters);
             }
             tmp_cmd = tmp_cmd->next_cmd;
         }
-        #endif
     }
+    #endif
 
     return true;
 }
