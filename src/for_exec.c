@@ -5,6 +5,9 @@
 #include "utils.h"
 #include "error.h"
 #include "command_set/alias_utils.h" // check_aliases
+#include "api.h"
+
+extern bool iteration_msg;
 
 bool for_exec(INPUT_STRING* input_str) {
 	/*
@@ -53,15 +56,22 @@ bool for_exec(INPUT_STRING* input_str) {
     	return false;
     }
 
+    char tmp_string[100];
 	for(unsigned int i=0; i<num_iterations; i++) {
-		printf("Iteration %u:\n",i+1);
+		#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
+		if(iteration_msg) {
+			snprintf(tmp_string, 100, "Iteration %u:\n", i+1);
+			appout(tmp_string);
+		}
+		#endif
 
 		bool result = cmd->command_ptr(tmp_input);
 
+		#if !defined(VT_TEST_MODE) || VT_TEST_MODE==0
 		if(result == false && i != num_iterations-1) {
-			printf("\n ------\n");
+			appout("\n ------\n");
 		}
-
+		#endif
 	}
 
 	free_input_string(tmp_input);

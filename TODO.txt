@@ -1,15 +1,3 @@
-########################################################
-#                   CHANGES FOR 0.3                    #
-#   to be released after all tests have been written   #
-########################################################
-
-Add a CSV to print a message (or not) at the beginning of each
-      iteration when calling the command "for"
-
-
-
-
-
 #####################################
 #         CHANGES FOR 1.0           #
 #####################################

@@ -10,6 +10,7 @@ bool cout;
 bool upall;
 bool hist;
 bool histal;
+bool iteration_msg;
 
 unsigned int maxin;
 unsigned int maxarr;

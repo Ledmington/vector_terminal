@@ -34,4 +34,6 @@ void update_all_csv(){
 	maxdiff = search_csv("maxdiff")->actual_value.x;
 
 	linestart = new_string(search_csv("linestart")->actual_value.s);
+
+	iteration_msg = search_csv("itmsg")->actual_value.b;
 }

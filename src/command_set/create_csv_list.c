@@ -85,4 +85,7 @@ void create_csv_list(){
 	vi = (VALUE_INFO*) malloc(sizeof(VALUE_INFO));
 	vi->pattern = new_string("*");
 	add_csv("LINE_START", "linestart", "The characters to print at the start of the command line.", STRING, tmp, vi);
+
+	tmp.b = true;
+	add_csv("ITERATION_MSG", "itmsg", "Specifies whether the terminal needs to print a string at the beginning of each iteration during the command for.", BIT, tmp, NULL);
 }
