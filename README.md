@@ -28,7 +28,7 @@ Runs the command `gcc src/*.c src/command_set/*.c src/main/*.c -o bin/vector.exe
 - `build_test.bat` builds either one single test file, by typing the name of the file without extension, or each test file (all test files are `src/test/*.c`), by typing `full`. When executing a full test, each test file is compiled and run separately and the result is written on `stdout`. The command run is: `gcc -DVT_TEST_MODE=1 src/test/<test_file> src\*.c src\command_set\*c -o src/test/<test_file>.exe`
 
 ## Contributions/Suggestions/Ideas
-If you want to help, you can take a look at the ever-growing file `TODO.txt` where i write my ideas about future features to implement. I'm always happy to hear some suggestions, even crazy ones, so please let me know if you want to help me and maybe i'll add your name to the contributors' list.
+If you want to help, you can take a look at the ever-growing file `TODO.txt` where i write my ideas about future features to implement. I'm always happy to hear some suggestions, even crazy ones, so please let me know if you want to help me and i'll add your name to the contributors' list.
 
 ## Bugs
 This project is, obviously, full of bugs that i can't find so, if you're luckier than me, please let me know and i'll add your name in the contributors' list.
